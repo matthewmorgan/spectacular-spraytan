@@ -93,7 +93,13 @@ $ git remote add yggdrasil https://github.com/matthewmorgan/spectacular-spraytan
 Then, to push our changes up to GitHub:
 
 ```
-$ git push
+$ git push yggdrasil master
+```
+
+You can shortcut the need to specify the remote name by setting the remote as 'upstream':
+
+```
+$ git push -u yggdrasil master
 ```
 
 To see all remotes associated with your repo:
