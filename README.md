@@ -98,6 +98,12 @@ Need to edit a different commit? No problem:
 $ git commit --amend 21d80a5
 ```
 
+Replace your last pushed commit with a revised one, but keep the same commit message:
+
+```
+git commit --amend --no-edit --allow-empty && git push -f
+```
+
 ---
 #### Add a Remote for Your Repository
 
@@ -105,13 +111,13 @@ Need to point back at your repo on GitHub?
 Let's call our remote `origin`:
 
 ```
-$ git remote add origin https://github.com/matthewmorgan/spectacular-spraytan.git
+$ git remote add origin git@github.com:matthewmorgan/spectacular-spraytan.git
 ```
 
 `origin` is not magic or reserved.  We could easily use:
 
 ```
-$ git remote add yggdrasil https://github.com/matthewmorgan/spectacular-spraytan.git
+$ git remote add yggdrasil git@github.com:matthewmorgan/spectacular-spraytan.git
 ```
 
 Then, to push our changes up to GitHub:
@@ -139,3 +145,35 @@ To delete a remote:
 ```
 $ git remote rm yggdrasil
 ```
+---
+#### Rewrite History
+
+```
+$ git reset --soft XXXXXX && git commit
+```
+
+---
+#### Cherry Pick One Commit
+
+Grab all the changes made in one commit, from any branch, and replay them on to your current checked-out branch:
+
+```
+$ git cherry-pick XXXX
+```
+
+---
+#### Save Everything
+
+My git anxiety largely went away when I realized that `commit` and even `reset --hard` don't really remove anything.  Your work is all still there:
+
+```
+$ git reflog
+3c2d08b HEAD@{0}: commit: Add logging format tips
+15635d5 HEAD@{1}: commit: Add more content
+3036572 HEAD@{2}: commit (initial): Initial commit
+```
+
+Any of the above listed refs can be checked out to recover work that you didn't mean to blow away.
+
+Thanks very much to @BrianGenisio, @IanVS, @jrwren, @MiguelCastillo, and @StevenACoffman for their initial thoughts on useful tips.
+
