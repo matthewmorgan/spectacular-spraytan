@@ -51,6 +51,7 @@ When you want to reapply your stashed changes:
 $ git stash apply
 ```
 This pops the top ref from the stack.
+
 To be more picky:
 ```
 $ git stash apply stash@{2}
