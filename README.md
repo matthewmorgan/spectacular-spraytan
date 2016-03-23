@@ -61,7 +61,7 @@ Get an easier to read summary of your commit history
 
 ```
 $ git log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-* 15635d5 - (HEAD -> master, yggdrasil/master) Add more content (2 minutes ago) <Matthew Morgan>
+* 15635d5 - (HEAD -> master) Add more content (2 minutes ago) <Matthew Morgan>
 * 3036572 - Initial commit (15 minutes ago) <Matthew Morgan>
 ```
 
