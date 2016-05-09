@@ -111,11 +111,6 @@ $ git commit --amend
 ```
 
 This opens your text editor and lets you change the message on the last commit you made.  
-Need to edit a different commit? No problem:
-
-```
-$ git commit --amend 21d80a5
-```
 
 
 ---
