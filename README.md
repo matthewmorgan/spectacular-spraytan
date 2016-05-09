@@ -2,7 +2,20 @@
 
 ### For a SEM-JS lightning talk by Matt Morgan
 
-#### Branch Your Work
+---
+
+# Git Orientation
+
+* Repos have branches: bugfix or feature
+* Branches have commits: logical units of work 
+* Commits have refs: unique IDs
+
+No hard and fast rules, but usually a commit is a logical unit of work that supports a feature or bug fix.  Branches are usually temporary, and merged back in to master when the feature or bugfix is complete.
+
+---
+
+#### Always Branch Your Work from Master
+
 Create and check out a branch at the same time
 
 ```
@@ -31,7 +44,7 @@ $ git branch my-new-branch
 ```
 
 ---
-#### Stash Your Work for Later
+#### Not Ready to Commit?  
 Stash your work to a stack for later recall
 ```
 $ git stash
@@ -61,17 +74,22 @@ $ git stash apply stash@{2}
 Get an easier to read summary of your commit history
 
 ```
-$ git log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+$ git log --color --graph \
+--pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)\
+%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
 * 15635d5 - (HEAD -> master) Add more content (2 minutes ago) <Matthew Morgan>
 * 3036572 - Initial commit (15 minutes ago) <Matthew Morgan>
 ```
 
-The above command can and should be made in to any easy, short alias, like `git lg`.  We can talk about that another time.
+The above command can and should be made in to any easy, short alias, like `git lg`.  
+We can talk about that another time.
 
 You can also get a nice summary of what's changed recently:
 
 ```
-$ git log --since='last month' --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
+$ git log --since='last month' \
+--pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
 
    7 src/com/dulcetsoftware/mmi/backoffice/ItemEditor.java
    4 src/com/dulcetsoftware/mmi/backoffice/ItemList.java
@@ -85,7 +103,7 @@ $ git log --since='last month' --pretty=format: --name-only | sort | uniq -c | s
 ```
 
 ---
-#### Edit Your Commit Messages
+#### Write Good Commit Messages
 Made a typo?  Or maybe just a not-great commit message?
 
 ```
@@ -99,14 +117,9 @@ Need to edit a different commit? No problem:
 $ git commit --amend 21d80a5
 ```
 
-Replace your last pushed commit with a revised one, but keep the same commit message:
-
-```
-git commit --amend --no-edit --allow-empty && git push -f
-```
 
 ---
-#### Add a Remote for Your Repository
+#### Share Your Work with Others Using Remotes
 
 Need to point back at your repo on GitHub?
 Let's call our remote `origin`:
@@ -147,7 +160,7 @@ To delete a remote:
 $ git remote rm yggdrasil
 ```
 ---
-#### Rewrite History
+#### GitHub Time Machine
 
 ```
 $ git reset --soft XXXXXX && git commit
@@ -177,4 +190,20 @@ $ git reflog
 Any of the above listed refs can be checked out to recover work that you didn't mean to blow away.
 
 Thanks very much to @BrianGenisio, @IanVS, @jrwren, @MiguelCastillo, and @StevenACoffman for their initial thoughts on useful tips.
+
+---
+
+# Final Thoughts
+
+* Branch your work
+* Commit early and often
+
+github: @matthewmorgan
+
+email: mail.matt.morgan@gmail.com
+
+this file: https://github.com/matthewmorgan/spectacular-spraytan.git
+
+slide tool: https://gnab.github.io/remark/remarkise
+
 
